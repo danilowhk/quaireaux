@@ -105,10 +105,11 @@ impl StackImpl of StackTrait {
         let Stack { word_dict: mut word_dict, len: len } = self;
 
         let i_index = len - i;
-        // TODO: How to just end the function?
-        // if len < i {
-        //     self = Stack { word_dict, len };
-        // }
+        
+        if len < i {
+            self = Stack { word_dict, len };
+            return ();
+        }
         // Get "values" to "swap"
         let value_i = word_dict.get(i_index);
         let value_len = word_dict.get(len);
